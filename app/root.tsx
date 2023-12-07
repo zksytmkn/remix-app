@@ -1,17 +1,9 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import { NextUIProvider } from "@nextui-org/react";
 
-export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
-];
+export const links: LinksFunction = () => [...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : [])];
 
 export default function App() {
   return (
@@ -23,10 +15,12 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
+        <NextUIProvider>
+          <Outlet />
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </NextUIProvider>
       </body>
     </html>
   );
