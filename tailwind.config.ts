@@ -1,10 +1,9 @@
-// tailwind.config.ts
-import type { Config } from "tailwindcss";
-
 const { nextui } = require("@nextui-org/react");
 
+import type { Config } from "tailwindcss";
+
 export default {
-  content: ["./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"],
+  content: ["./app/**/*.{js,jsx,ts,tsx}", "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
